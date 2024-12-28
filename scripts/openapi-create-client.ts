@@ -10,7 +10,7 @@ createClient({
   logs: {
     level: 'error'
   },
-  experimentalParser: true,
+  experimentalParser: false,
   plugins: [
     ...defaultPlugins,
     {
@@ -18,12 +18,8 @@ createClient({
       name: '@hey-api/typescript',
     },
     {
-      name: '@hey-api/transformers',
-      dates: true,
-    },
-    {
       name: '@hey-api/sdk',
-      transformer: true,
+      transformer: '@hey-api/transformers',
       auth: false,
     }
   ]

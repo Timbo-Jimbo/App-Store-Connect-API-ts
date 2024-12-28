@@ -26,16 +26,15 @@ describe('Client', async () => {
     privateKey: PRIVATE_KEY!
   });
 
-  test('AppStoreConnectClient should be able to fetch an app', async () => {
+  test('Should be able to fetch an app', async () => {
     
     const response = await appStoreConnectApi.appsGetCollection({ 
       query: {
-        limit: 0
+        limit: 1
       }
     })
     
     expect(response.error).toBeUndefined()
     expect(response.data).toBeDefined()
   })
-
 })
