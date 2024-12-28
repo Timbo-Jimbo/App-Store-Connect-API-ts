@@ -20,6 +20,11 @@ createClient({
     {
       name: '@hey-api/transformers',
       dates: true,
+    },
+    {
+      name: '@hey-api/sdk',
+      transformer: true,
+      auth: false,
     }
   ]
 });
