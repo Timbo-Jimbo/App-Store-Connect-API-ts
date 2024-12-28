@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test'  
-import { AppStoreConnectApi as appStoreConnectApi } from '../app-store-connect-api'
+import appStoreConnectApi from '../app-store-connect-api'
 
 const { PRIVATE_KEY_ID, ISSUER_ID, PRIVATE_KEY } = process.env
 

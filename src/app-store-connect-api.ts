@@ -3,7 +3,7 @@ import { generateAuthToken, type AuthToken } from './auth'
 const api = await import('./client/sdk.gen')
 type AppStoreConnectApi = Omit<typeof api, 'client'>
 
-export const AppStoreConnectApi = {
+const AppStoreConnect = {
   ... (api as AppStoreConnectApi),
   setConfig: async ({
     privateKeyId, 
@@ -15,7 +15,6 @@ export const AppStoreConnectApi = {
     privateKey: string
   }) => {
     let authToken: AuthToken | undefined = undefined
-
     api.client.setConfig({
       baseUrl: 'https://api.appstoreconnect.apple.com',
       fetch: async (request) => {
@@ -41,3 +40,5 @@ export const AppStoreConnectApi = {
     })
   }
 }
+
+export default AppStoreConnect

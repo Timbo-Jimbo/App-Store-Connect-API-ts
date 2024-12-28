@@ -14,7 +14,20 @@ npm install @timbo-jimbo/app-store-connect-api-ts
 ```
 
 ## How to use
-Coming in a bit, but check out the [test file](src/tests/app-store-connect-api.test.ts) for a usage example.
+```typescript
+
+AppStoreConnectApi.setConfig({
+  issuerId: data.issuerId,
+  privateKeyId: data.keyId,
+  privateKey: data.p8Contents,
+});
+
+const apps = await AppStoreConnectApi.AppsService.appsGetCollection({
+  query: {
+    limit: 1
+  }
+});
+```
 
 ## How this package was authored
 

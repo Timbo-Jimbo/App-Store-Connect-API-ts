@@ -1,6 +1,6 @@
 {
   "name": "@timbo-jimbo/app-store-connect-api-ts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Provides typesafe access to the App Store Connect API",
   "license": "MIT",
   "type": "module",
@@ -12,7 +12,8 @@
   "scripts": {
     "generate": "bun scripts/openapi-create-client.ts",
     "test": "bun test",
-    "build": "bun scripts/bun-build.ts"
+    "build": "bun scripts/bun-build.ts",
+    "publish": "npm publish --access public"
   },
   "devDependencies": {
     "@hey-api/openapi-ts": "^0.60.1",
