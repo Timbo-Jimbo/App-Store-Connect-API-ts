@@ -6,7 +6,7 @@ await Bun.build({
   plugins: [
     dts({
       output: {
-        exportReferencedTypes: false,
+        exportReferencedTypes: true,
       }
     })
   ],
