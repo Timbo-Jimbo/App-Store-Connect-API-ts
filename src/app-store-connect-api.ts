@@ -34,7 +34,7 @@ const createAppStoreConnectApiClient = async ({
       const url = new URL(request.url)
 
       Array.from(url.searchParams.keys())
-        .filter(key => key.startsWith('fields['))
+        .filter(key => key.includes('[') && key.endsWith(']'))
         .forEach((key) => {
 
           const values = url.searchParams.getAll(key)
