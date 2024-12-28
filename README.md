@@ -15,15 +15,17 @@ npm install @timbo-jimbo/app-store-connect-api-ts
 
 ## How to use
 ```typescript
-import AppStoreConnectApi from "@timbo-jimbo/app-store-connect-api-ts"
+import createAppStoreConnectApiClient from "@timbo-jimbo/app-store-connect-api-ts"
 
-AppStoreConnectApi.setConfig({
-  issuerId: data.issuerId,
-  privateKeyId: data.keyId,
-  privateKey: data.p8Contents,
+const { PRIVATE_KEY_ID, ISSUER_ID, PRIVATE_KEY } = process.env //or whereever you store them
+
+const appStoreConnectApi = await createAppStoreConnectApiClient({
+  issuerId: ISSUER_ID!,
+  privateKeyId: PRIVATE_KEY_ID!,
+  privateKey: PRIVATE_KEY!
 });
 
-const apps = await AppStoreConnectApi.appsGetCollection({
+const apps = await appStoreConnectApi.appsGetCollection({
   query: {
     limit: 1
   }

@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, test } from 'bun:test'  
-import appStoreConnectApi from '../app-store-connect-api'
+import createAppStoreConnectApiClient from '../app-store-connect-api'
 
 const { PRIVATE_KEY_ID, ISSUER_ID, PRIVATE_KEY } = process.env
 
@@ -18,20 +18,13 @@ beforeAll(() => {
   
 })
 
-describe('Client', () => {
+describe('Client', async () => {
 
-  beforeAll(async () => {
-    
-    appStoreConnectApi.setConfig({
-      privateKeyId: PRIVATE_KEY_ID!,
-      issuerId: ISSUER_ID!,
-      privateKey: PRIVATE_KEY!
-    })
-  })
-
-  afterAll(() => {
-    appStoreConnectApi.clearConfig()
-  })
+  const appStoreConnectApi = await createAppStoreConnectApiClient({
+    issuerId: ISSUER_ID!,
+    privateKeyId: PRIVATE_KEY_ID!,
+    privateKey: PRIVATE_KEY!
+  });
 
   test('AppStoreConnectClient should be able to fetch an app', async () => {
     
