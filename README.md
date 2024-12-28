@@ -5,7 +5,7 @@ This is for devs who just want to access the App Store Connect API for their int
 
 ## Install
 ```bash
-npm install timbo-jimbo/app-store-connect-api-ts
+npm install @timbo-jimbo/app-store-connect-api-ts
 ```
 
 ## App Store Connect API Version
