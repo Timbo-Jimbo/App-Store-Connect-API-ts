@@ -1,10 +1,9 @@
 import { generateAuthToken, type AuthToken } from './auth'
 
 const api = await import('./client/sdk.gen')
-type AppStoreConnectApi = Omit<typeof api, 'client'>
 
-const AppStoreConnect = {
-  ... (api as AppStoreConnectApi),
+const AppStoreConnectApi = {
+  ... (api as Omit<typeof api, 'client'>),
   setConfig: async ({
     privateKeyId, 
     issuerId, 
@@ -41,4 +40,4 @@ const AppStoreConnect = {
   }
 }
 
-export default AppStoreConnect
+export default AppStoreConnectApi

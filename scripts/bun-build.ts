@@ -4,6 +4,10 @@ await Bun.build({
   entrypoints: ['./src/app-store-connect-api.ts'],
   outdir: './dist',
   plugins: [
-    dts()
+    dts({
+      output: {
+        exportReferencedTypes: false,
+      }
+    })
   ],
 })
