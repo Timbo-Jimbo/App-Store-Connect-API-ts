@@ -1,8 +1,14 @@
 {
-  "name": "app-store-connect-api-ts",
+  "name": "@timbo-jimbo/app-store-connect-api-ts",
   "version": "0.1.0",
   "description": "Provides typesafe access to the App Store Connect API",
+  "license": "MIT",
   "type": "module",
+  "main": "dist/app-store-connect-api.js",
+  "types": "dist/app-store-connect-api.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "generate": "bun scripts/openapi-create-client.ts",
     "test": "bun test",
@@ -19,5 +25,23 @@
   "dependencies": {
     "@hey-api/client-fetch": "^0.5.7",
     "jose": "^5.9.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Timbo-Jimbo/App-Store-Connect-API-ts.git"
+  },
+  "keywords": [
+    "ios",
+    "typescript",
+    "appstore",
+    "appstoreconnect",
+    "apple",
+    "api",
+    "sdk"
+  ],
+  "author": "Timbo Jimbo",
+  "bugs": {
+    "url": "https://github.com/Timbo-Jimbo/App-Store-Connect-API-ts/issues"
+  },
+  "homepage": "https://github.com/Timbo-Jimbo/App-Store-Connect-API-ts#readme"
 }
