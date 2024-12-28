@@ -13,7 +13,7 @@
     "generate": "bun scripts/openapi-create-client.ts",
     "test": "bun test",
     "build": "bun scripts/bun-build.ts",
-    "publish": "bun scripts/bun-build.ts && npm publish --access public"
+    "build-and-publish": "bun scripts/bun-build.ts && npm publish --access public"
   },
   "devDependencies": {
     "@hey-api/openapi-ts": "^0.60.1",
