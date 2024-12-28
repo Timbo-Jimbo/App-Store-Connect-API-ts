@@ -27,7 +27,27 @@ const createAppStoreConnectApiClient = async ({
       }
 
       request.headers.set('Authorization', `Bearer ${authToken.token}`)
-      return fetch(request)
+
+      //there seems to be a bug in Hey API where query params are included 
+      // more than once and need to be merged?
+      //fields[x]: [a] and fields[x]: [b] should be fields[x]: [a,b]
+      const url = new URL(request.url)
+
+      Array.from(url.searchParams.keys())
+        .filter(key => key.startsWith('fields['))
+        .forEach((key) => {
+
+          const values = url.searchParams.getAll(key)
+          if(values.length > 1) {
+            url.searchParams.delete(key)
+            url.searchParams.append(key, values.join(','))
+          }
+        })
+
+      //url decode
+      url.search = decodeURIComponent(url.search)
+
+      return fetch(new Request(url.toString(), request))
     }
   })
   
