@@ -18,10 +18,6 @@ createClient({
       name: '@hey-api/typescript',
     },
     {
-      name: '@hey-api/sdk',
-      asClass: true,
-    },
-    {
       name: '@hey-api/transformers',
       dates: true,
     }

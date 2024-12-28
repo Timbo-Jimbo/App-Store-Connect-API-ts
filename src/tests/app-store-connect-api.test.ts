@@ -35,7 +35,7 @@ describe('Client', () => {
 
   test('AppStoreConnectClient should be able to fetch an app', async () => {
     
-    const response = await appStoreConnectApi.AppsService.appsGetCollection({ 
+    const response = await appStoreConnectApi.appsGetCollection({ 
       query: {
         limit: 0
       }

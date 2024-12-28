@@ -1,6 +1,6 @@
 {
   "name": "@timbo-jimbo/app-store-connect-api-ts",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Provides typesafe access to the App Store Connect API",
   "license": "MIT",
   "type": "module",
