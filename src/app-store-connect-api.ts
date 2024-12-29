@@ -28,22 +28,13 @@ const createAppStoreConnectApiClient = async ({
 
       request.headers.set('Authorization', `Bearer ${authToken.token}`)
 
-      //string concat any duplicate search param fields
-      const url = new URL(request.url)
-
-      Array.from(url.searchParams.keys())
-        .forEach((key) => {
-          const values = url.searchParams.getAll(key)
-          if(values.length > 1) {
-            url.searchParams.delete(key)
-            url.searchParams.append(key, values.join(','))
-          }
-        })
-
-      //url decode
-      url.search = decodeURIComponent(url.search)
-
-      return fetch(new Request(url.toString(), request))
+      return fetch(request)
+    },
+    querySerializer: {
+      array: {
+        explode: false,
+        style: 'form'
+      }
     }
   })
   
@@ -63,7 +54,7 @@ const createAppStoreConnectApiClient = async ({
 
         if(args.length == 0) {
           args.push({
-            client: client
+            client: client,
           })
         }
         else {
